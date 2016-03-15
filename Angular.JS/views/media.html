@@ -1,0 +1,19 @@
+
+
+		<form>
+
+			<h1>Services</h1>
+
+			<ul>			
+				<li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+					{{service.name}} <span>{{service.nota }}</span>
+				</li>
+			</ul>
+
+			<div class="total">
+				<!-- Calculate average -->
+				Média: <span>{media()}</span>
+			</div>
+
+		</form>
+
