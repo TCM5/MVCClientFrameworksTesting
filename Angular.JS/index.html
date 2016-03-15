@@ -2,61 +2,42 @@
 <html lang="en">
   <head >
 
-
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-	
-			<meta charset="utf-8"/>
-		<title>ISCTE Calculator</title>
-
+		<meta charset="utf-8"/>
+		<title>ISCTE Angular Example</title>
+		
+		<!-- loading libraries -->
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
-
-		<!-- The main CSS file -->
-		<link href="style.css" rel="stylesheet" />
-		<link href="style2.css" rel="stylesheet" />
-		<link href="style3.css" rel="stylesheet" />
-		
-		
-		      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-		  <script src="app.js"></script>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body ng-app="sampleApp" >
-
-		<img id="logoimage" src="resources/isctelogo.png"></img>
 		
-		<nav class="{{active}}" >
-			<a href="#intro/" class="Introducao" ng-click="active='home'">Intro</a>
-			<a href="#mei/" class="MEI" ng-click="active='home'">MEI</a>
-			<a href="#media/" class="Media" ng-click="active='projects'">Calcular Média</a>
-			<a href="#cadeiras/" class="Cadeiras" ng-click="active='services'">Cadeiras</a>
-			<a href="#contactos/" class="Contactos Professores" ng-click="active='contact'">Contactos professores</a>
-		</nav>
-
- 
-    <div id="main" class="container">
-	
-	<div ng-view></div>	
+		<!-- loading Angular APP -->
+		 <script src="app.js"></script>
 		
+		<!--  CSS files -->
+		<link href="style.css" rel="stylesheet" />
+		<link href="style2.css" rel="stylesheet" />
+		
+	</head>
 
-    </div><!-- /.container -->
+	<body ng-app="sampleApp" >
 
-	
- 
-	
- 
-	
-  </body>
+		<div class="container">
+			<img id="logoimage" class="img-responsive" src="resources/isctelogo.png"></img>
+		
+			<nav class="{{active}}" >
+				<a href="#intro/" class="Introducao" ng-click="active='home'">Intro</a>
+				<a href="#mei/" class="MEI" ng-click="active='home'">MEI</a>
+				<a href="#media/" class="Media" ng-click="active='projects'">Calcular Média</a>
+				<a href="#cadeiras/" class="Cadeiras" ng-click="active='services'">Cadeiras</a>
+				<a href="#contactos/" class="Contactos Professores" ng-click="active='contact'">Contactos professores</a>
+			</nav>	
+			<div ng-view></div>	
+		</div>
+
+	</body>
 </html>
