@@ -2,7 +2,7 @@
 
 		<form>
 
-			<h1>Services</h1>
+			<h1>Média 2º Semestre</h1>
 
 			<ul>			
 				<li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
@@ -12,7 +12,7 @@
 
 			<div class="total">
 				<!-- Calculate average -->
-				Média: <span>{media()}</span>
+				Média: <span>{{media() }}</span>
 			</div>
 
 		</form>

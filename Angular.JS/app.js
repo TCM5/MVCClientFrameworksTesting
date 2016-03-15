@@ -21,6 +21,11 @@
 			templateUrl: 'views/cadeiras.html',                                               
 			controller:'CadeirasCtrl',   
 		})
+		
+		 .when('/Cadeira/:cadeiraID', {
+			templateUrl: 'views/cadeiras_detalhe.html',
+			controller: 'CadeirasDetalheCtrl'
+      })
 				
 		.when('/contactos', {
 			templateUrl: 'views/contactos.html',                                               
@@ -28,6 +33,7 @@
 		});
 
 	}]);
+
 
 	
 	sampleApp.controller('IntroCtrl', function($scope) {
@@ -83,22 +89,140 @@
 
 		angular.forEach($scope.services, function(s){
 			if (s.active){
-				total+= s.nota;
+				total_cadeiras+=1;			
+				total_notas+= s.nota;
+			
 			}
-			total_cadeiras=total_cadeiras+1;
+			
 		});
-
-		return total_notas/total_cadeiras;
+		
+		var media = total_notas/total_cadeiras;
+		
+		return parseFloat(media).toFixed(2);
 	};
 		
 	});
 
 	sampleApp.controller('CadeirasCtrl', function($scope) {
-		$scope.message = 'cadeiras!';
+		//Nothing to do here
 	});
 
+	
+
+	
+	sampleApp.controller('CadeirasDetalheCtrl', function($scope, $routeParams) {
+
+	
+	
+	switch($routeParams.cadeiraID) {
+		case '1':
+			$scope.cadeiraNome = 'Tecnologias para Sistemas de Informação Operacionais';
+			$scope.cadeiraFUC = 'Trabalho Grupo com Discussão 40% – Trabalho – TI – Trabalho - SI - Frequência (Avaliação Individual) "60% – Consituido pela matéria lecionada – Questões sobre temas dos trabalhos';
+			break;
+		
+		case '2':
+			$scope.cadeiraNome = 'Auditoria e Qualidade';
+			$scope.cadeiraFUC  = 'Teste individual sem uso de computador (60%)		  Trabalho em grupo de Auditoria em Sistemas de Informação (40%)								  Exame';
+			break;
+		
+		case '3':
+			$scope.cadeiraNome = 'Sistemas Informáticos de Apoio à Decisão II';
+			$scope.cadeiraFUC = 'Existem dois tipos de avaliação: contínua e por exame.Avaliação contínua  é composta pelos seguintes instrumentos de avaliação:- Trabalho prático de BSC em grupo -  60%- Teste teórico individual (frequência) - 40%A Nota mínima para cada instrumento de avaliação é de 10 valores. A nota de exame constitui 100% da nota da UC.';
+			break;
+		
+		case '4':
+			$scope.cadeiraNome = 'Gestão de Projectos de Tecnologia e Sistemas de Informação';
+			$scope.cadeiraFUC = 'Avaliação por exame final:* 100% - Prova escrita: Teórica+Exercício- Aprovação - nota >= 10Avaliação Contínua (opcional):- Componentes:  * 50% - Projeto  ( 35% trab. Grupo + 15% avaliação individual); * 50% - Teste escrito individual (sem consulta).- Nota mínima em cada uma das componentes: 40%.';
+			break;
+		
+		case '5':
+			$scope.cadeiraNome = 'Desenvolvimento de Aplicações para Ambientes Móveis';
+			$scope.cadeiraFUC = 'Avaliação Contínua:- Realização de projeto em grupo/individual (50%)- Apresentação e discussão do projeto (40%)- Participação nas aulas (10%)Exame Final:- Prova escrita (100%) ';
+			break;
+		
+		default:
+			break;
+						
+	}
+
+
+	});
+	
+	
+	
+	sampleApp.filter('searchFor', function(){
+
+	return function(arr, searchString){
+
+		if(!searchString){
+			return arr;
+		}
+
+		var result = [];
+
+		searchString = searchString.toLowerCase();
+
+		// Using the forEach helper method to loop through the array
+		angular.forEach(arr, function(item){
+
+			if(item.title.toLowerCase().indexOf(searchString) !== -1){
+				result.push(item);
+			}
+
+		});
+
+		return result;
+	};
+
+});
+	
+	
 	sampleApp.controller('ContactosCtrl', function($scope) {
-		$scope.message = 'contactos!';
+	
+	$scope.items = [
+	
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/cjc',
+			title: 'Carlos Manuel Jorge da Costa',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/cjc'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/njsa',
+			title: 'Nelson José dos Santos António',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/njsa'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/agm',
+			title: 'António Gonçalves Martins',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/agm'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/aara',
+			title: 'Álvaro Augusto da Rosa',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/aara'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/earc',
+			title: 'Elsa Alexandra Cabral da Rocha Cardoso',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/earc'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/lcpd',
+			title: 'Luisa Domingues',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/lcpd'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/jgomes',
+			title: 'José António Cordeiro Gomes',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/jgomes'
+		},
+		{
+			url: 'https://ciencia.iscte-iul.pt/public/person/cjcs',
+			title: 'Carlos José Corredoura Serrão',
+			image: 'https://ciencia.iscte-iul.pt/public/photo/cjcs'
+		}
+	];
+	
 	});
 
 	
