@@ -28,7 +28,7 @@ section, footer, header, aside, nav{
 
 nav{
 	display:inline-block;
-	margin:60px auto 45px;
+	margin:1% auto 5px;
 	background-color:#5597b4;
 	box-shadow:0 1px 1px #ccc;
 	border-radius:2px;
@@ -36,9 +36,8 @@ nav{
 
 nav a{
 	display:inline-block;
-	padding: 18px 30px;
+	padding: 10px 30px;
 	color:#fff !important;
-	font-weight:bold;
 	font-size:16px;
 	text-decoration:none !important;
 	line-height:1;
@@ -58,25 +57,26 @@ nav a:last-child{
 	border-radius:0 2px 2px 0;
 }
 
-nav.home .home,
-nav.projects .projects,
-nav.services .services,
-nav.contact .contact{
-	background-color:#e35885;
+nav.Introducao .Introducao,
+nav.MEI .MEI,
+nav.Media .Media,
+nav.Cadeiras .Cadeiras,
+nav.ContactosProfessores .ContactosProfessores{
+	background-color:#8ec16d;
 }
 
-p{
+nav:p{
 	color:#7d9098;
 }
 
-p b{
+nav:p nav:b{
 	color:#ffffff;
 	display:inline-block;
 	padding:5px 10px;
 	background-color:#c4d7e0;
 	border-radius:2px;
 	text-transform:uppercase;
-	font-size:18px;
+	font-size:12px;
 }
 
 #logoimage{
@@ -192,8 +192,75 @@ section, footer, header, aside, nav{
 	color:#6e7a7f;
 }
 
+/**
+MEDIA
+
+*/
 
 
 
+/*-------------------------
+	The order form
+--------------------------*/
 
+
+form{
+	background-color: #61a1bc;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px #ccc;
+	width: 75%;
+	padding: 35px 60px;
+		padding-bottom: 5px ;
+	margin: 15px auto;
+}
+
+form h1{
+	color:#fff;
+	font-size:2em;
+	font-weight: normal;
+	line-height:1;
+	text-shadow:0 3px 0 rgba(0,0,0,0.1);
+	margin-top: 0px;
+}
+
+form ul{
+	list-style:none;
+	color:#fff;
+	font-size:1em;
+	text-align: left;
+	margin:20px 0 15px;
+}
+
+form ul li{
+	padding:10px 30px;
+	background-color:#A0A0A0;
+	margin-bottom:8px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.1);
+	cursor:pointer;
+}
+
+form ul {
+	width: 100%;
+}
+
+form ul li span{
+	float:right;
+}
+
+form ul li.active{
+	background-color:#8ec16d;
+}
+
+div.total{
+	border-top:1px solid rgba(255,255,255,0.5);
+	padding:15px 30px;
+	font-size:1.2em;
+	
+	text-align: left;
+	color:#fff;
+}
+
+div.total span{
+	float:right;
+}
 
