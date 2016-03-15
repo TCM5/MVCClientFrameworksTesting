@@ -73,6 +73,10 @@ form ul li{
 	cursor:pointer;
 }
 
+form ul {
+	width: 100%;
+}
+
 form ul li span{
 	float:right;
 }

@@ -1,6 +1,13 @@
-<h2>{{cadeiraNome}}</h2>
+<form>
+	<h1>{{cadeiraNome}}</h1>
+	<ul>			
+		<li ng-class="{active:service.active}">
+			<b>{{cadeiraFUC}}</b>.
+		</li>
+	</ul>
 
-<b>{{cadeiraFUC}}</b>.
+	<div class="total">
+		<button><a href="#cadeiras/" class="Cadeiras" ng-click="active='services'">Voltar</a></button>
+	</div>
+</form>
 
- <button><a href="#cadeiras/" class="Cadeiras" ng-click="active='services'">Voltar</a></button>
- 
