@@ -1,8 +1,13 @@
-	var sampleApp = angular.module('sampleApp', ['ngRoute']);
+	var angularAPP = angular.module('angularAPP', ['ngRoute']);
 
-	sampleApp.config(['$routeProvider',
+	angularAPP.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.when('/', {
+			templateUrl: 'views/intro.html',                                               
+			controller:'IntroCtrl',   
+		})
+		
+		.when('/intro', {
 			templateUrl: 'views/intro.html',                                               
 			controller:'IntroCtrl',   
 		})
@@ -36,13 +41,52 @@
 
 
 	
-	sampleApp.controller('IntroCtrl', function($scope) {
-		$scope.message = 'intro!';
+	angularAPP.controller('IntroCtrl', function($scope) {
+			
 
-	});
+   //iniciar variaveis
+     $scope.firstName = "";
+	 $scope.lastName = "";
+     $scope.moveAnimationState = "Por enviar";
+     $scope.onCheckBoxChangeResult = "";
 
+	$scope.getFullName = function ()  {
+		if(  $scope.firstName != "" ||  $scope.lastName != ""){
+			return "Eu, " + $scope.firstName + " " + $scope.lastName;
+		}
+	};
+
+    $scope.onCheckBoxChange = function () {
+		$scope.onCheckBoxChangeResult = ($scope.check1Selected ? "gosto" : "não gosto") + " do curso " +
+        ", " + ($scope.check2Selected ? "gosto" : "não gosto") + " das cadeiras . Envio esta informação para fins estatisticos";
+    };
+
+   	
+    $scope.moveAnimationState = "Por enviar";
+
+    $scope.onMoveSquaresClick = function ()  {
+    
+        $scope.moveAnimationState = "A enviar...";
+            
+		sleep(3000); //3 segundinhos :P
+        
+		$scope.moveAnimationState = "Enviado!";
+      
+      }
+});
+
+//sleep como no java
+		function sleep(milliseconds) {
+			  var start = new Date().getTime();
+			  for (var i = 0; i < 1e7; i++) {
+				if ((new Date().getTime() - start) > milliseconds){
+				  break;
+					}
+				}
+			}
+			
 	
-	sampleApp.controller('MeiCtrl', function($scope) {
+	angularAPP.controller('MeiCtrl', function($scope) {
 	});
 
 
@@ -126,7 +170,7 @@ function SwitchableGridController($scope, instagram){
 	
 	
 	
-	sampleApp.controller('MediaCtrl', function($scope) {
+	angularAPP.controller('MediaCtrl', function($scope) {
 		$scope.message = 'media!';
 		
 			$scope.services = [
@@ -184,14 +228,14 @@ function SwitchableGridController($scope, instagram){
 		
 	});
 
-	sampleApp.controller('CadeirasCtrl', function($scope) {
+	angularAPP.controller('CadeirasCtrl', function($scope) {
 		//Nothing to do here
 	});
 
 	
 
 	
-	sampleApp.controller('CadeirasDetalheCtrl', function($scope, $routeParams) {
+	angularAPP.controller('CadeirasDetalheCtrl', function($scope, $routeParams) {
 
 	
 	
@@ -231,7 +275,7 @@ function SwitchableGridController($scope, instagram){
 	
 	
 	
-	sampleApp.filter('searchFor', function(){
+	angularAPP.filter('searchFor', function(){
 
 	return function(arr, searchString){
 
@@ -258,7 +302,7 @@ function SwitchableGridController($scope, instagram){
 });
 	
 	
-	sampleApp.controller('ContactosCtrl', function($scope) {
+	angularAPP.controller('ContactosCtrl', function($scope) {
 	
 	$scope.items = [
 	

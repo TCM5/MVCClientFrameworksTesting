@@ -1,3 +1,62 @@
-<h2>BAM</h2>
+<style>
+#double  {
 
-Here are the details for order <b>#{{order_id}}</b>.
+	margin: 0;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+}
+#double li  { 
+
+ display: inline-block; 
+ 
+}
+
+#double_check {
+
+margin-left: 30px;
+width: 15px;
+height: 15px;
+}
+</style>
+
+	<h2> Bem vindo ao Angular MEI </h2>
+	
+	<form>	
+		<p>Esta página vai-te ajudar a fazer calculos relacioandos com as tuas notas, informação das cadeiras e dos professores. A tecnologia usada é recente, portanto, aproveita!</p>
+		<p> Por motivos estatisticos, insere alguns dados nesta primeira página.</p>
+
+		<ul id="double">
+			<li>
+				<label>Qual o teu primeiro nome?</label>
+			</li>
+			<li>
+				<input type="text" ng-model="firstName"/>				
+			</li>
+			<li >
+				<label>E o ultimo? 	</label>
+			</li>
+			<li>
+				<input type="text" ng-model="lastName"/>
+			</li>
+		</ul>
+		<ul id="double">
+			<li>
+				<label>Gostas do teu curso?</label>
+				<input type="checkbox" id="double_check" ng-model="check1Selected" ng-change="onCheckBoxChange()" />
+			</li>
+		
+			<li>
+				<label>E das cadeiras? </label>		
+				<input type="checkbox" id="double_check" ng-model="check2Selected" ng-change="onCheckBoxChange()" />
+			</li>
+		</ul>			
+	</form>
+	<p> {{getFullName()}} {{onCheckBoxChangeResult}} </p>
+	<span><button type="button" ng-click="onMoveSquaresClick()">Enviar opinião</button> {{moveAnimationState}}</span>
+
+  
+  
+  
