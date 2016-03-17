@@ -20,6 +20,14 @@ margin-left: 30px;
 width: 15px;
 height: 15px;
 }
+
+#intro_btn {
+	background-color: #61a1bc;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px #ccc;
+	width: 150px;
+	height: 40px;
+}
 </style>
 
 	<h2> Bem vindo ao Angular MEI </h2>
@@ -55,7 +63,7 @@ height: 15px;
 		</ul>			
 	</form>
 	<p> {{getFullName()}} {{onCheckBoxChangeResult}} </p>
-	<span><button type="button" ng-click="onMoveSquaresClick()">Enviar opinião</button> {{moveAnimationState}}</span>
+	<span><button type="button" id="intro_btn" ng-click="onMoveSquaresClick()">Enviar opinião</button> {{moveAnimationState}}</span>
 
   
   
